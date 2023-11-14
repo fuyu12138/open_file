@@ -386,11 +386,7 @@ public class OpenFilePlugin implements MethodCallHandler
     }
 
     private void openApkFile() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !canInstallApk()) {
-            result(-3, "Permission denied: " + Manifest.permission.REQUEST_INSTALL_PACKAGES);
-        } else {
-            startActivity();
-        }
+        startActivity();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
