@@ -173,16 +173,16 @@ public class OpenFilePlugin implements MethodCallHandler
         }
         intent.setDataAndType(uri, mimeType);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        List<ResolveInfo> resolveInfoList;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-            resolveInfoList = activity.getPackageManager().queryIntentActivities(intent, PackageManager.ResolveInfoFlags.of(PackageManager.MATCH_DEFAULT_ONLY));
-        }else{
-            resolveInfoList = activity.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-        }
-        for (ResolveInfo resolveInfo : resolveInfoList) {
-            String packageName = resolveInfo.activityInfo.packageName;
-            activity.grantUriPermission(packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        }
+        // List<ResolveInfo> resolveInfoList;
+        // if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+        //     resolveInfoList = activity.getPackageManager().queryIntentActivities(intent, PackageManager.ResolveInfoFlags.of(PackageManager.MATCH_DEFAULT_ONLY));
+        // }else{
+        //     resolveInfoList = activity.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        // }
+        // for (ResolveInfo resolveInfo : resolveInfoList) {
+        //     String packageName = resolveInfo.activityInfo.packageName;
+        //     activity.grantUriPermission(packageName, uri, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        // }
         int type = 0;
         String message = "done";
         try {
